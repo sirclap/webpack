@@ -1,15 +1,14 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const path = require("path");
-const basePath = __dirname;
+const helpers = require('./helpers');
 
 module.exports = {
-  context: path.join(basePath, "src"),
+  context: helpers.resolveFromRootPath('src'),
   resolve: {
     extensions: [".js", ".ts", ".tsx"]
   },
   entry: {
-    app: "./index.ts",
+    app: "./index.tsx",
     appStyles: ["./styles.scss"]
   },
   output: {
@@ -50,8 +49,16 @@ module.exports = {
             options: {
               outputPath: "assets/images"
             }
-
-          }
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 65
+              }
+            }
+          },
         ]
       },
       {

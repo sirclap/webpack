@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
+$title-bg-color: #126bbf;
+$title-color: white;
+
 body {
     font-family: 'Nunito', sans-serif;
 }
 
 .title {
-    background-color: #126bbf;
-    color: white;
+    background-color: $title-bg-color;
+    color: $title-color;
     font-size: 2em;
     text-align: center;
 }
